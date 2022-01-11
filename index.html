@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel='stylesheet' href='styles.css'>
+	<title>Budget</title>
+</head>
+
+<body>
+	<div class='container'>
+		<h1>Budgeting</h1>
+
+		<div class='budget-container'>
+			<input placeholder='enter budget' id='budget-field' type='text' />
+			<button id='submit-budget'>Submit</button>
+			<text id='budget-text'>Budget: $</text>
+			<div id='budget-display'>0</div>
+		</div>
+
+		<div class='expense-container'>
+			<input placeholder='enter expenses' id='expense-field' type='text' />
+			<button id='submit-expense'>Submit</button>
+			<text id='expense-text'>Budget: $</text>
+			<div id='expense-display'>0</div>
+		</div>
+
+		<div class='balance-container'>
+			<text id='balance-text'>Balance: $</text>
+			<div id='balance-display'>0</div>
+		</div>
+
+	</div>
+	<script src='scripts.js'></script>
+</body>
+
+</html>
