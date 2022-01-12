@@ -5,40 +5,71 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel='stylesheet' href='styles.css'>
 	<title>Budget</title>
 </head>
 
 <body>
+
 	<div class='container'>
-		<h1>Budgeting</h1>
+
+		<div class='header'>
+			<h1 id='title'>Budgeting</h1>
+		</div>
 
 		<div class='budget-container'>
-			<input placeholder='enter budget' id='budget-field' type='text' />
-			<button id='submit-budget'>Submit</button>
-			<p id='budget-text'>Budget: $</p>
-			<p id='budget-display'>0</p>
+			<div class='budget-form'>
+				<input placeholder='enter budget' id='budget-field' type='text' />
+				<button id='submit-budget'>Submit</button>
+			</div>
+		</div>
+
+		<div class='budget-container-2'>
+			<div class='budget-form-2'>
+				<div id='budget-text'>Budget: $</div>
+				<div id='budget-display'> 0</div>
+			</div>
 		</div>
 
 		<div class='expense-container'>
-			<input placeholder='enter expenses' id='expense-field' type='text' />
-			<button id='submit-expense'>Submit</button>
-			<text id='expense-text'>Expenses: $</text>
-			<div id='expense-display'>0</div>
+			<div class='expense-form'>
+				<input placeholder='enter expenses' id='expense-field' type='text' />
+				<button id='submit-expense'>Submit</button>
+			</div>
 		</div>
 
-		
+		<div class='expense-container-2'>
+			<div class='expense-form-2'>
+				<div id='expense-text'>Expenses: $</div>
+				<div id='expense-display'> 0</div>
+			</div>
+		</div>
+
 
 		<div class='expense-list-container'>
-			<text id='expense-list-text'>Expenses</text>
-			<ul id='expense-list'>
-			</ul>
+			<div class='expense-list-form'>
+				<div id='expense-list-text'>Expenses</div>
+			</div>
+		</div>
+
+		<div class='expense-list-container-2'>
+			<div class='expense-list-form-2'>
+				<ul id='expense-list'>
+				</ul>
+			</div>
 		</div>
 
 		<div class='balance-container'>
-			<text id='balance-text'>Balance: $</text>
-			<div id='balance-display'>0</div>
+			<div class='balance-form'>
+				<text id='balance-text'>Balance: $</text>
+				<div id='balance-display'>0</div>
+			</div>
 		</div>
+
+	</div>
 	</div>
 	<script src='scripts.js'></script>
 </body>
