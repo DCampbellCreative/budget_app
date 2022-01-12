@@ -60,6 +60,18 @@
 	font-size: 25px;
 }
 
+#expense-list {
+	list-style: none;
+}
+
+.expense-list-item {
+	height: 25px;
+	width: 175px;
+	border: 2px solid darkgrey;
+	padding-left: 15px;
+	align-items: center;
+}
+
 .balance-container {
 	display: inline-flex;
 }

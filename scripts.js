@@ -9,15 +9,24 @@ window.onload = function () {
 	const userBalance = document.querySelector('#balance-display');
 	// const warningText = document.querySelector('#warning-text')
 
+	const reducer = (previousValue, currentValue) => previousValue + currentValue;
+
+	// function reducer(total, num) {
+	// 	return total + num;
+	// }
+
+
+	const expenseList = [];
+
 	submitBudget.addEventListener('click', () => {
-		let budget = userBudget.value
+		let budget = parseInt(userBudget.value);
 
 		if (isNaN(budget)) {
 			alert('Invalid Input, Please Enter A Number')
 		} else if (budget === '') {
 			alert('Please Enter A Number')
 		} else {
-			userBudgetDisplay.innerText = userBudget.value
+			userBudgetDisplay.innerText = budget;
 			userBudget.value = '';
 			updateBalance()
 		}
@@ -25,23 +34,45 @@ window.onload = function () {
 	});
 
 	submitExpense.addEventListener('click', () => {
-		let expense = userExpense.value
+		let expense = parseInt(userExpense.value)
+		// let expenseTotal = expenseList.reduce(reducer);
 
 		if (isNaN(expense)) {
 			alert('Invalid Input, Please Enter A Number')
 		} else if (expense === '') {
 			alert('Please Enter A Number')
-		} else {
-			userExpenseDisplay.innerText = userExpense.value
+		} else if (expenseList.length > 0) {
+			// expense = expenseList.reduce(reducer)
+			// userExpenseDisplay.innerText = sum(expenseList);
+			userExpenseDisplay.innerText = expense;
+			expenseList.push(expense);
+			addListItem(expense);
+			console.log(expenseList);
 			userExpense.value = '';
-			updateBalance()
+			updateBalance();
+
+		} else {
+			expenseList.push(expense);
+			addListItem(expense);
+			userExpenseDisplay.innerText = expenseList.reduce(reducer);
+			console.log(expenseList);
+			userExpense.value = '';
+			updateBalance();
 		}
 
 	});
 
 	function updateBalance() {
-		let balance = userBudgetDisplay.innerHTML - userExpenseDisplay.innerHTML;
+		let balance = parseInt(userBudgetDisplay.innerHTML) - parseInt(userExpenseDisplay.innerHTML);
 		userBalance.innerHTML = balance;
+	}
+
+	function addListItem() {
+		let expenseList = document.querySelector("#expense-list")
+		let listItem = document.createElement("li")
+		listItem.innerText = userExpenseDisplay.innerText;
+		listItem.classList.add("expense-list-item");
+		expenseList.appendChild(listItem);
 	}
 
 }
