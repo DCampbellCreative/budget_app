@@ -1,89 +1,131 @@
-.container {
+/* .row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+  }
+  
+  .column {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	flex-basis: 100%;
+	flex: 1;
+  } */
+
+
+.container {
+	display: grid;
+	grid-template-columns: 10% 40% 40% 10%;
+	grid-template-rows: 100px 100px 100px 100px 100px;
 }
 
+/* budget container */
 .budget-container {
-	display: inline-flex;
-	margin-bottom: 25px;
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	justify-content: center;
 }
 
 #budget-field {
+	display: inline;
 	margin-right: 25px;
 	height: 25px;
 	width: 250px;
 }
 
 #submit-budget {
-	margin-right: 50px;
+	display: inline;
 	width: 75px;
 	height: 25px;
 
 }
 #budget-text {
-	margin-right: 25px;
-	text-align: center;
+	display: inline;
 	font-size: 25px;
 }
 
 #budget-display {
-	text-align: center;
+	display: inline;
 	font-size: 25px;
 }
 
+/* expense container */
 .expense-container {
-	display: inline-flex;
-	margin-bottom: 25px;
+	grid-row-start: 3;
+	grid-column-start: 2;
+	grid-column-end: 4;
+	align-items: center;
 }
 
 #expense-field {
+	display: inline;
 	margin-right: 25px;
 	height: 25px;
 	width: 250px;
 }
 
 #submit-expense {
+	display: inline;
 	margin-right: 50px;
 	width: 75px;
 	height: 25px;
 
 }
 #expense-text {
+	display: inline;
 	margin-right: 25px;
 	text-align: center;
 	font-size: 25px;
 }
 
 #expense-display {
+	display: inline;
 	text-align: center;
 	font-size: 25px;
+}
+
+/* .bottom-container {
+	grid-row-start: 4;
+	grid-column-start: 2;
+} */
+
+.expense-list-container {
+	grid-row-start: 4;
+	grid-column-start: 2;
 }
 
 #expense-list {
 	list-style: none;
 }
 
+#expense-list-text {
+	margin-right: 25px;
+	font-size: 25px;
+}
+
 .expense-list-item {
 	height: 25px;
 	width: 175px;
 	border: 2px solid darkgrey;
-	padding-left: 15px;
-	vertical-align: middle;
+	margin-bottom: 10px;
 }
 
 .balance-container {
-	display: inline-flex;
+	grid-column-start: 3;
+	grid-row-start: 4;
 }
 
 #balance-text {
+	display: inline;
 	margin-right: 25px;
-	text-align: center;
+	/* text-align: center; */
 	font-size: 25px;
 }
 
 #balance-display {
-	text-align: center;
+	display: inline;
+	/* text-align: center; */
 	font-size: 25px;
 }
 

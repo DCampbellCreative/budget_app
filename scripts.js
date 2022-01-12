@@ -15,9 +15,10 @@ window.onload = function () {
 	// 	return total + num;
 	// }
 
-
+	// initiates empty array to store expense values
 	const expenseList = [];
 
+	// submits user's budget for calculation
 	submitBudget.addEventListener('click', () => {
 		let budget = parseInt(userBudget.value);
 
@@ -33,6 +34,7 @@ window.onload = function () {
 
 	});
 
+	// submits user's expenses for calculation, add expense to an array, calculates total
 	submitExpense.addEventListener('click', () => {
 		let expense = parseInt(userExpense.value)
 		// let expenseTotal = expenseList.reduce(reducer);
@@ -62,11 +64,13 @@ window.onload = function () {
 
 	});
 
+	// function to update total user balance
 	function updateBalance() {
 		let balance = parseInt(userBudgetDisplay.innerHTML) - parseInt(userExpenseDisplay.innerHTML);
 		userBalance.innerHTML = balance;
 	}
 
+	// add expense array and renders them in a list
 	function addListItem() {
 		let expenseList = document.querySelector("#expense-list")
 		let listItem = document.createElement("li")
