@@ -69,7 +69,7 @@
 	width: 175px;
 	border: 2px solid darkgrey;
 	padding-left: 15px;
-	align-items: center;
+	vertical-align: middle;
 }
 
 .balance-container {
