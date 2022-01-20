@@ -2,8 +2,8 @@
 
 .container {
 	display: grid;
-	grid-template-columns: 20% 20% 20% 20% 20%;
-	grid-template-rows: 100px 75px 75px 25px 25px 25px;
+	grid-template-columns: 15% 30% 10% 30% 15%;
+	grid-template-rows: 100px 55px 40px 55px 25px 25px 25px;
 	grid-gap: .5rem;
 	font-family: 'Manrope', sans-serif;
 }
@@ -21,26 +21,27 @@
 /* budget container */
 .budget-container {
 	grid-column-start: 2;
-	grid-column-end: 4;
+	grid-column-end: 3;
 	grid-row-start: 2;
 }
 
 .budget-form {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: left;
+	/* width: 100%; */
 }
 
 #budget-field {
 	display: inline;
 	margin-right: 10px;
 	height: 25px;
-	width: 250px; 
+	width: 100%; 
 }
 
 #submit-budget {
 	display: inline;
-	width: 75px;
+	/* width: auto; */
 	height: 30px;
 	margin-right: 50px;
 }
@@ -56,6 +57,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
 }
 
 #budget-text {
@@ -71,26 +73,26 @@
 /* expense container */
 .expense-container {
 	grid-column-start: 2;
-	grid-column-end: 4;
+	grid-column-end: 3;
 	grid-row-start: 3;
 }
 
 .expense-form {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: left;
 }
 
 #expense-field {
 	display: inline;
 	margin-right: 10px;
 	height: 25px;
-	width: 250px;
+	width: 69%;
 }
 
 #submit-expense {
 	display: inline;
-	width: 75px;
+	width: auto;
 	height: 30px;
 	margin-right: 50px;
 }
@@ -98,12 +100,13 @@
 .expense-container-2 {
 	grid-column-start: 4;
 	grid-column-end: 5;
-	grid-row-start: 3;
+	grid-row-start: 4;
 }
 
 .expense-form-2 {
 	display: flex;
 	justify-content: center;
+	width: 100%;
 }
 
 #expense-text {
@@ -116,11 +119,37 @@
 	font-size: 25px;
 }
 
+/* expense description */
+.expense-description-container {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 4;
+}
+
+.expense-description-form {
+	display: flex;
+	justify-content: left;
+}
+
+#expense-description-field {
+	display: inline;
+	margin-right: 10px;
+	height: 25px;
+	width: 100%;
+}
+
+#submit-expense {
+	display: inline;
+	width: 75px;
+	height: 30px;
+	margin-right: 50px;
+}
+
 /* expense list container */
 .expense-list-container {
-	grid-row-start: 4;
+	grid-row-start: 5;
 	grid-column-start: 2;
-	grid-column-end: 4;
+	grid-column-end: 3;
 }
 
 .expense-list-form {
@@ -139,9 +168,9 @@
 
 /* expense items */
 .expense-list-container-2 {
-	grid-row-start: 5;
+	grid-row-start: 6;
 	grid-column-start: 2;
-	grid-column-end: 4;
+	grid-column-end: 3;
 }
 
 .expense-list-form-2 {
@@ -151,17 +180,32 @@
 }
 
 .expense-list-item {
-	height: 25px;
-	width: 175px;
+	display: flex;
+	height: 35px;
+	width: 250px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px 10px 5px 10px;
 	border: 2px solid darkgrey;
 	margin-left: -45px;
 	margin-bottom: 10px;
 }
 
+/* .expense-list-item-text {
+	text-align: center;
+} */
+
+.delete-expense-item {
+	/* justify-content: space-around; */
+	/* margin-left: 135px; */
+	border: 1px solid gray;
+	color: red;
+}
+
 /* balance container */
 .balance-container {
 	grid-column-start: 4;
-	grid-row-start: 4;
+	grid-row-start: 5;
 	justify-content: center;
 }
 

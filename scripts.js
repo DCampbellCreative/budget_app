@@ -4,21 +4,16 @@ window.onload = function () {
 	const userBudgetDisplay = document.querySelector('#budget-display');
 	const submitBudget = document.querySelector('#submit-budget');
 	const userExpense = document.querySelector('#expense-field');
+	const expenseDescription = document.querySelector('#expense-description-field')
 	const userExpenseDisplay = document.querySelector('#expense-display');
 	const submitExpense = document.querySelector('#submit-expense');
 	const userBalance = document.querySelector('#balance-display');
 	// const warningText = document.querySelector('#warning-text')
 
-	const reducer = (previousValue, currentValue) => previousValue + currentValue;
-
-	// function reducer(total, num) {
-	// 	return total + num;
-	// }
-
 	// initiates empty array to store expense values
 	const expenseList = [];
 
-	// submits user's budget for calculation
+	// submits user's budget
 	submitBudget.addEventListener('click', () => {
 		let budget = parseInt(userBudget.value);
 
@@ -29,56 +24,70 @@ window.onload = function () {
 		} else {
 			userBudgetDisplay.innerText = budget;
 			userBudget.value = '';
-			updateBalance()
+			// updateBalance()
 		}
-
 	});
 
-	// submits user's expenses for calculation, add expense to an array, calculates total
+	// submits user's expense
 	submitExpense.addEventListener('click', () => {
-		let expense = parseInt(userExpense.value)
-		// let expenseTotal = expenseList.reduce(reducer);
+		let expenseValue = userExpense.value
 
-		if (isNaN(expense)) {
-			alert('Invalid Input, Please Enter A Number')
-		} else if (expense === '') {
-			alert('Please Enter A Number')
-		} else if (expenseList.length > 0) {
-			// expense = expenseList.reduce(reducer)
-			// userExpenseDisplay.innerText = sum(expenseList);
-			userExpenseDisplay.innerText = expense;
-			expenseList.push(expense);
-			addListItem(expense);
-			console.log(expenseList);
-			userExpense.value = '';
-			updateBalance();
-
+		if (isNaN(expenseValue) || expenseValue === '' || expenseDescription.value === '') {
+			alert('Invalid Input, Please enter a $ amount & a description')
 		} else {
-			expenseList.push(expense);
-			addListItem(expense);
-			userExpenseDisplay.innerText = expenseList.reduce(reducer);
-			console.log(expenseList);
+			addListObject();
+			addListItem();
+			// console.log(sumAmount());
+			userExpenseDisplay.innerHTML = sumAmount();
 			userExpense.value = '';
-			updateBalance();
+			expenseDescription.value = '';
 		}
-
 	});
 
-	// function to update total user balance
-	function updateBalance() {
-		let balance = parseInt(userBudgetDisplay.innerHTML) - parseInt(userExpenseDisplay.innerHTML);
-		userBalance.innerHTML = balance;
+	// renders expense list
+	const addListItem = (e) => {
+		let renderedExpenseList = document.querySelector("#expense-list");
+		let listItem = document.createElement("li");
+		let deleteButton = document.createElement("button");
+		listItem.innerText = '$' + userExpense.value + ': ' + expenseDescription.value
+		deleteButton.innerHTML = "X";
+		deleteButton.classList.add("delete-expense-item")
+		listItem.classList.add("expense-list-item");
+		listItem.appendChild(deleteButton);
+		renderedExpenseList.appendChild(listItem);
 	}
 
-	// add expense array and renders them in a list
-	function addListItem() {
-		let expenseList = document.querySelector("#expense-list")
-		let listItem = document.createElement("li")
-		listItem.innerText = userExpenseDisplay.innerText;
-		listItem.classList.add("expense-list-item");
-		expenseList.appendChild(listItem);
+	// creates an object to hold expenses and descriptions
+	const addListObject = (e) => {
+		const expense = {}
+		// id: Date.now(),
+		expense['amount'] = parseInt(userExpense.value),
+			expense['description'] = expenseDescription.value,
+
+			expenseList.push(expense);
+		// console.log(expenseList);
 	}
+
+	// const sumAmount = expenseList.map(expense => ({ value: expense.amount }));
+
+	// const sumAmount = () => expenseList.forEach(expense => {
+	// 	for (let key in expense) {
+	// 		console.log(expense);
+	// 	}
+	// });
+
+	// const sumAmount = () => expenseList.map(expense =>
+	// 	console.log(expense.amount));
+
+	const sumAmount = () => expenseList.reduce((acc, val) =>
+		acc + val.amount, 0);
+
+	let currentExpense = Object.keys(expenseList).forEach(function (amount) {
+		// `prop` is the property name
+		// `data[prop]` is the property value
+		console.log(amount);
+	});
+
+	// .reduce((prev, curr) => prev + curr, 0);
 
 }
-
-
