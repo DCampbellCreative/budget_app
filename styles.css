@@ -1,41 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@200&display=swap');
+/* body {
+	display: grid;
+} */
 
 .container {
 	display: grid;
-	grid-template-columns: 15% 30% 10% 30% 15%;
-	grid-template-rows: 100px 55px 40px 55px 25px 25px 25px;
-	grid-gap: .5rem;
-	font-family: 'Manrope', sans-serif;
+	grid-template-columns: 7.5% 40% 5% 30% 17.5%;
+	grid-template-rows: 100px 55px 40px 55px 25px 25px;
+	grid-gap: 2rem;
+	font-family: 'Nunito Sans', sans-serif;
 }
 
 .header {
-	grid-column-start: 3;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	width: 100vw;
+	background-color: mediumaquamarine;
 }
 
 #title {
+	color: white;
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 60px;
 }
 
 /* budget container */
 .budget-container {
+	/* display: grid; */
 	grid-column-start: 2;
 	grid-column-end: 3;
 	grid-row-start: 2;
+	/* justify-content: left; */
+	/* width: 100%; */
 }
 
 .budget-form {
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	justify-content: left;
 	/* width: 100%; */
 }
 
 #budget-field {
 	display: inline;
-	margin-right: 10px;
+	/* margin-right: 10px; */
 	height: 25px;
+	margin-right: 13px;
 	width: 100%; 
 }
 
@@ -43,7 +55,8 @@
 	display: inline;
 	/* width: auto; */
 	height: 30px;
-	margin-right: 50px;
+	width:	75px;
+	/* margin-right: 50px; */
 }
 
 /* budget container 2 */
@@ -56,18 +69,21 @@
 .budget-form-2 {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: left;
 	width: 100%;
 }
 
 #budget-text {
 	display: inline;
 	font-size: 25px;
+	margin-right: 5px;
+	
 }
 
 #budget-display {
 	display: inline;
 	font-size: 25px;
+	color:forestgreen;
 }
 
 /* expense container */
@@ -85,17 +101,17 @@
 
 #expense-field {
 	display: inline;
-	margin-right: 10px;
+	margin-right: 13px;
 	height: 25px;
-	width: 69%;
+	width: 76%;
 }
 
 #submit-expense {
 	display: inline;
-	width: auto;
+	width: 75px;
 	height: 30px;
-	margin-right: 50px;
 }
+
 /* expense container 2 */
 .expense-container-2 {
 	grid-column-start: 4;
@@ -105,18 +121,20 @@
 
 .expense-form-2 {
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 	width: 100%;
 }
 
 #expense-text {
 	font-size: 25px;
+	margin-right: 5px;
 }
 
 #expense-display {
 	display: inline;
 	text-align: center;
 	font-size: 25px;
+	color: red;
 }
 
 /* expense description */
@@ -138,12 +156,12 @@
 	width: 100%;
 }
 
-#submit-expense {
+/* #submit-expense {
 	display: inline;
 	width: 75px;
 	height: 30px;
 	margin-right: 50px;
-}
+} */
 
 /* expense list container */
 .expense-list-container {
@@ -211,7 +229,7 @@
 
 .balance-form {
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 }
 
 #balance-text {

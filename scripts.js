@@ -1,5 +1,6 @@
 window.onload = function () {
 
+	// declaration of variable to target HTML elements
 	const userBudget = document.querySelector('#budget-field');
 	const userBudgetDisplay = document.querySelector('#budget-display');
 	const submitBudget = document.querySelector('#submit-budget');
@@ -8,7 +9,6 @@ window.onload = function () {
 	const userExpenseDisplay = document.querySelector('#expense-display');
 	const submitExpense = document.querySelector('#submit-expense');
 	const userBalance = document.querySelector('#balance-display');
-	// const warningText = document.querySelector('#warning-text')
 
 	// initiates empty array to store expense values
 	const expenseList = [];
@@ -22,21 +22,22 @@ window.onload = function () {
 		} else if (budget === '') {
 			alert('Please Enter A Number')
 		} else {
+			updateBalance();
 			userBudgetDisplay.innerText = budget;
 			userBudget.value = '';
-			// updateBalance()
 		}
 	});
 
 	// submits user's expense
 	submitExpense.addEventListener('click', () => {
-		let expenseValue = userExpense.value
+		let expenseValue = parseInt(userExpense.value);
 
 		if (isNaN(expenseValue) || expenseValue === '' || expenseDescription.value === '') {
 			alert('Invalid Input, Please enter a $ amount & a description')
 		} else {
 			addListObject();
-			addListItem();
+			updateBalance();
+			// addListItem();
 			// console.log(sumAmount());
 			userExpenseDisplay.innerHTML = sumAmount();
 			userExpense.value = '';
@@ -44,28 +45,50 @@ window.onload = function () {
 		}
 	});
 
-	// renders expense list
-	const addListItem = (e) => {
-		let renderedExpenseList = document.querySelector("#expense-list");
-		let listItem = document.createElement("li");
-		let deleteButton = document.createElement("button");
-		listItem.innerText = '$' + userExpense.value + ': ' + expenseDescription.value
-		deleteButton.innerHTML = "X";
-		deleteButton.classList.add("delete-expense-item")
-		listItem.classList.add("expense-list-item");
-		listItem.appendChild(deleteButton);
-		renderedExpenseList.appendChild(listItem);
+	// updates users balance with values submitted
+	const updateBalance = () => {
+		if (expenseList.length < 1) {
+			userBalance.innerText = userBudgetDisplay.innerText
+		} else {
+			userBalance.innerText = parseInt(userBudgetDisplay.innerText) - sumAmount();
+		}
 	}
 
-	// creates an object to hold expenses and descriptions
-	const addListObject = (e) => {
-		const expense = {}
-		// id: Date.now(),
-		expense['amount'] = parseInt(userExpense.value),
-			expense['description'] = expenseDescription.value,
+	// renders expense list
+	// const addListItem = (e) => {
+	// 	let renderedExpenseList = document.querySelector("#expense-list");
+	// 	let listItem = document.createElement("li");
+	// 	let deleteButton = document.createElement("button");
+	// 	listItem.innerText = '$' + userExpense.value + ': ' + expenseDescription.value
+	// 	deleteButton.innerHTML = "X";
+	// 	deleteButton.classList.add("delete-expense-item")
+	// 	listItem.classList.add("expense-list-item");
+	// 	listItem.appendChild(deleteButton);
+	// 	renderedExpenseList.appendChild(listItem);
+	// }
 
-			expenseList.push(expense);
-		// console.log(expenseList);
+	// creates an object to hold expenses and descriptions
+	const addListObject = () => {
+		const expense = {}
+		expense['amount'] = parseInt(userExpense.value);
+		expense['description'] = expenseDescription.value;
+
+		expenseList.push(expense);
+
+		const addListItem = () => {
+			let renderedExpenseList = document.querySelector("#expense-list");
+			let listItem = document.createElement("li");
+			let deleteButton = document.createElement("button");
+			listItem.innerText = '$' + JSON.stringify(expenseList.amount) + ': ' + this.description
+			deleteButton.innerHTML = "X";
+			deleteButton.classList.add("delete-expense-item")
+			listItem.classList.add("expense-list-item");
+			listItem.appendChild(deleteButton);
+			renderedExpenseList.appendChild(listItem);
+		}
+
+		addListItem()
+		console.log(expenseList);
 	}
 
 	// const sumAmount = expenseList.map(expense => ({ value: expense.amount }));
