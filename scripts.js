@@ -13,17 +13,27 @@ window.onload = function () {
 	// initiates empty array to store expense values
 	const expenseList = [];
 
+	// initiates budget with a value of 0
+	userBudgetDisplay.innerText = parseInt('0');
+	userExpenseDisplay.innerText = parseInt('0');
+
+
 	// submits user's budget
 	submitBudget.addEventListener('click', () => {
-		let budget = parseInt(userBudget.value);
+		let budgetValue = parseInt(userBudget.value);
 
-		if (isNaN(budget)) {
+		if (isNaN(budgetValue)) {
 			alert('Invalid Input, Please Enter A Number')
-		} else if (budget === '') {
+		} else if (budgetValue === '') {
 			alert('Please Enter A Number')
+		} else if (expenseList.length < 1) {
+			userBudgetDisplay.innerText = budgetValue;
+			userBalance.innerText = budgetValue;
+			checkBalance();
 		} else {
 			updateBalance();
-			userBudgetDisplay.innerText = budget;
+			checkBalance();
+			userBudgetDisplay.innerText = budgetValue;
 			userBudget.value = '';
 		}
 	});
@@ -37,6 +47,7 @@ window.onload = function () {
 		} else {
 			addListObject();
 			updateBalance();
+			checkBalance();
 			// addListItem();
 			// console.log(sumAmount());
 			userExpenseDisplay.innerHTML = sumAmount();
@@ -48,9 +59,18 @@ window.onload = function () {
 	// updates users balance with values submitted
 	const updateBalance = () => {
 		if (expenseList.length < 1) {
-			userBalance.innerText = userBudgetDisplay.innerText
+			userBalance.innerText = userBudgetDisplay.innerText;
 		} else {
 			userBalance.innerText = parseInt(userBudgetDisplay.innerText) - sumAmount();
+		}
+	}
+
+	// adds style to user balance based upon amount
+	const checkBalance = () => {
+		if (userBalance.innerText < 0) {
+			userBalance.style.color = "red";
+		} else {
+			userBalance.style.color = "green";
 		}
 	}
 
@@ -74,12 +94,13 @@ window.onload = function () {
 		expense['description'] = expenseDescription.value;
 
 		expenseList.push(expense);
-
+		console.log(expense.amount)
+		// creates list item in expense list
 		const addListItem = () => {
 			let renderedExpenseList = document.querySelector("#expense-list");
 			let listItem = document.createElement("li");
 			let deleteButton = document.createElement("button");
-			listItem.innerText = '$' + JSON.stringify(expenseList.amount) + ': ' + this.description
+			listItem.innerText = '$' + JSON.stringify(expense.amount) + ': ' + expense.description;
 			deleteButton.innerHTML = "X";
 			deleteButton.classList.add("delete-expense-item")
 			listItem.classList.add("expense-list-item");
@@ -102,6 +123,7 @@ window.onload = function () {
 	// const sumAmount = () => expenseList.map(expense =>
 	// 	console.log(expense.amount));
 
+	// adds up expense list values to update expense amount
 	const sumAmount = () => expenseList.reduce((acc, val) =>
 		acc + val.amount, 0);
 
