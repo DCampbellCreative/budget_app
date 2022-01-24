@@ -13,26 +13,39 @@ window.onload = function () {
 	// initiates empty array to store expense values
 	const expenseList = [];
 
-	// initiates budget with a value of 0
+	// initiates display fields with a value of 0
 	userBudgetDisplay.innerText = parseInt('0');
 	userExpenseDisplay.innerText = parseInt('0');
 
+	// clears field when it looses focus
+	// userBudget.onblur = inputBlur();
+	// const inputBlur = () => {
+	// 	userBudget.value = '';
+	// }
 
 	// submits user's budget
 	submitBudget.addEventListener('click', () => {
-		let budgetValue = parseInt(userBudget.value);
+		const budgetValue = parseInt(userBudget.value);
 
 		if (isNaN(budgetValue)) {
-			alert('Invalid Input, Please Enter A Number')
+			userBudget.classList.add('warning');
+			// alert('Invalid Input, Please Enter A Number')
+			userBudget.value = 'Invalid Input, Please Enter A Number';
 		} else if (budgetValue === '') {
-			alert('Please Enter A Number')
+			userBudget.classList.add('warning');
+			// alert('Please Enter A Number')
+			userBudget.value = 'Please Enter A Number';
 		} else if (expenseList.length < 1) {
 			userBudgetDisplay.innerText = budgetValue;
 			userBalance.innerText = budgetValue;
+			userBudget.value = '';
+			userBudget.classList.remove('warning');
+			updateBalance();
 			checkBalance();
 		} else {
 			updateBalance();
 			checkBalance();
+			userBudget.classList.remove('warning');
 			userBudgetDisplay.innerText = budgetValue;
 			userBudget.value = '';
 		}
@@ -74,42 +87,44 @@ window.onload = function () {
 		}
 	}
 
-	// renders expense list
-	// const addListItem = (e) => {
-	// 	let renderedExpenseList = document.querySelector("#expense-list");
-	// 	let listItem = document.createElement("li");
-	// 	let deleteButton = document.createElement("button");
-	// 	listItem.innerText = '$' + userExpense.value + ': ' + expenseDescription.value
-	// 	deleteButton.innerHTML = "X";
-	// 	deleteButton.classList.add("delete-expense-item")
-	// 	listItem.classList.add("expense-list-item");
-	// 	listItem.appendChild(deleteButton);
-	// 	renderedExpenseList.appendChild(listItem);
-	// }
-
 	// creates an object to hold expenses and descriptions
 	const addListObject = () => {
 		const expense = {}
+
 		expense['amount'] = parseInt(userExpense.value);
 		expense['description'] = expenseDescription.value;
 
 		expenseList.push(expense);
-		console.log(expense.amount)
+
 		// creates list item in expense list
 		const addListItem = () => {
-			let renderedExpenseList = document.querySelector("#expense-list");
-			let listItem = document.createElement("li");
-			let deleteButton = document.createElement("button");
-			listItem.innerText = '$' + JSON.stringify(expense.amount) + ': ' + expense.description;
+			const renderedExpenseList = document.querySelector("#expense-list");
+			const listItem = document.createElement("li");
+			const deleteButton = document.createElement("button");
+
+			// const i = expenseList.findIndex(expense => expense);
+
+			listItem.innerText = '$' + expense.amount + ': ' + expense.description;
+
 			deleteButton.innerHTML = "X";
 			deleteButton.classList.add("delete-expense-item")
+			deleteButton.addEventListener('click', () => {
+				// console.log(JSON.stringify(expense));
+				listItem.classList.add("hidden");
+				expenseList.slice();
+				console.log(expenseList);
+				// console.log(i);
+			});
+
 			listItem.classList.add("expense-list-item");
 			listItem.appendChild(deleteButton);
 			renderedExpenseList.appendChild(listItem);
+
+
 		}
 
 		addListItem()
-		console.log(expenseList);
+		// console.log(expenseList);
 	}
 
 	// const sumAmount = expenseList.map(expense => ({ value: expense.amount }));
