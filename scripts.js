@@ -17,12 +17,6 @@ window.onload = function () {
 	userBudgetDisplay.innerText = parseInt('0');
 	userExpenseDisplay.innerText = parseInt('0');
 
-	// clears field when it looses focus
-	// userBudget.onblur = inputBlur();
-	// const inputBlur = () => {
-	// 	userBudget.value = '';
-	// }
-
 	// submits user's budget
 	submitBudget.addEventListener('click', () => {
 		const budgetValue = parseInt(userBudget.value);
@@ -36,17 +30,17 @@ window.onload = function () {
 			// alert('Please Enter A Number')
 			userBudget.value = 'Please Enter A Number';
 		} else if (expenseList.length < 1) {
+			userBudget.classList.remove('warning');
 			userBudgetDisplay.innerText = budgetValue;
 			userBalance.innerText = budgetValue;
+			updateBalance();
+			checkBalance();
 			userBudget.value = '';
-			userBudget.classList.remove('warning');
-			updateBalance();
-			checkBalance();
 		} else {
-			updateBalance();
-			checkBalance();
 			userBudget.classList.remove('warning');
 			userBudgetDisplay.innerText = budgetValue;
+			updateBalance();
+			checkBalance();
 			userBudget.value = '';
 		}
 	});
@@ -102,25 +96,21 @@ window.onload = function () {
 			const listItem = document.createElement("li");
 			const deleteButton = document.createElement("button");
 
-			// const i = expenseList.findIndex(expense => expense);
-
 			listItem.innerText = '$' + expense.amount + ': ' + expense.description;
 
 			deleteButton.innerHTML = "X";
 			deleteButton.classList.add("delete-expense-item")
 			deleteButton.addEventListener('click', () => {
-				// console.log(JSON.stringify(expense));
-				listItem.classList.add("hidden");
-				expenseList.slice();
-				console.log(expenseList);
-				// console.log(i);
+				const index = expenseList.findIndex((item) => item.description === expense.description && item.amount === expense.amount);
+				expenseList.splice(index, 1);
+				document.querySelectorAll('.expense-list-item')[index].remove();
+				userExpenseDisplay.innerHTML = sumAmount();
+				updateBalance();
 			});
 
 			listItem.classList.add("expense-list-item");
 			listItem.appendChild(deleteButton);
 			renderedExpenseList.appendChild(listItem);
-
-
 		}
 
 		addListItem()
