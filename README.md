@@ -10,6 +10,6 @@ Entering a new budget overwrites the previous value and returns new calculations
 
 Expenses are displayed on screen and can easily be removed from display and calculation by clicking the "delete" button.</p>
 
-<p>**Author: Douglass Campbell**</p>
+**Author: Douglass Campbell**
 
-<p>Check out more of my code: [github.com/DCampbellCreative](https://github.com/DCampbellCreative)</p>
+Check out more of my code: [github.com/DCampbellCreative](https://github.com/DCampbellCreative)
