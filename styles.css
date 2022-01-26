@@ -55,7 +55,6 @@
 	box-shadow: 2px 2px 2px grey;
 }
 
-
 /* budget container 2 */
 .budget-container-2 {
 	display: grid;
@@ -76,8 +75,7 @@
 #budget-text {
 	display: inline;
 	font-size: 25px;
-	margin-right: 5px;
-	
+	margin-right: 5px;	
 }
 
 #budget-display {
