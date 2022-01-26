@@ -12,6 +12,6 @@ Expenses are displayed on screen and can easily be removed from display and calc
 
 **Author: Douglass Campbell**
 
-View Deployment: [DCampbellCreative/dont_budge](https://dcampbellcreative.github.io/dont_budge/
+View Deployment: [DCampbellCreative/dont_budge](https://dcampbellcreative.github.io/dont_budge/)
 
 Check out more of my code: [github.com/DCampbellCreative](https://github.com/DCampbellCreative)
