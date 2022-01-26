@@ -1,7 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@200&display=swap');
-/* body {
-	display: grid;
-} */
 
 .container {
 	background: linear-gradient(to bottom, gray, 1%, white);
@@ -29,6 +26,8 @@
 
 /* budget container */
 .budget-container {
+	display: grid;
+	align-items: center;
 	grid-column-start: 2;
 	grid-column-end: 3;
 	grid-row-start: 2;
@@ -41,7 +40,6 @@
 
 #budget-field {
 	display: inline;
-	/* margin-right: 10px; */
 	height: 25px;
 	margin-right: 13px;
 	width: 100%; 
@@ -51,7 +49,6 @@
 	display: inline;
 	height: 30px;
 	width:	100px;
-	/* margin-right: 50px; */
 }
 
 #submit-budget:hover {
@@ -61,6 +58,9 @@
 
 /* budget container 2 */
 .budget-container-2 {
+	display: grid;
+	align-items: center;
+	margin-top: 25px;
 	grid-column-start: 4;
 	grid-column-end: 5;
 	grid-row-start: 2;
@@ -88,6 +88,7 @@
 
 /* expense container */
 .expense-container {
+	display: grid;
 	grid-column-start: 2;
 	grid-column-end: 3;
 	grid-row-start: 3;
@@ -95,15 +96,22 @@
 
 .expense-form {
 	display: flex;
-	align-items: center;
 	justify-content: left;
 }
 
 #expense-field {
 	display: inline;
+	margin-top: 4px;
 	margin-right: 13px;
 	height: 25px;
-	width: 72%;
+	width: 100%;
+}
+
+#empty-DOM-element {
+	display: inline;
+	width: 100px;
+	height: 30px;
+	visibility: hidden;
 }
 
 #submit-expense {
@@ -208,8 +216,6 @@
 }
 
 .delete-expense-item {
-	/* justify-content: space-around; */
-	/* margin-left: 135px; */
 	border: 1px solid gray;
 	border-radius: 3px;
 	color: red;
@@ -243,12 +249,20 @@
 	font-size: 25px;
 }
 
-.hidden {
-	display: none;
+.warning {
+	font-size: 13px;
+	color: red;
 }
 
-.warning {
+.field-warning {
 	border: 2px solid red;
 	border-radius: 2px;
+}
+
+.field-warning::placeholder {
 	color: red;
+}
+
+.hidden {
+	visibility: hidden;
 }

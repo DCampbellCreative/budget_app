@@ -20,24 +20,26 @@ window.onload = function () {
 	// submits user's budget
 	submitBudget.addEventListener('click', () => {
 		const budgetValue = parseInt(userBudget.value);
+		const warning = document.getElementById('budget-warning');
 
-		if (isNaN(budgetValue)) {
-			userBudget.classList.add('warning');
-			// alert('Invalid Input, Please Enter A Number')
-			userBudget.value = 'Invalid Input, Please Enter A Number';
-		} else if (budgetValue === '') {
-			userBudget.classList.add('warning');
-			// alert('Please Enter A Number')
-			userBudget.value = 'Please Enter A Number';
+		// removes warning when user types in field
+		userBudget.oninput = () => {
+			warning.classList.add('hidden');
+			userBudget.classList.remove('field-warning');
+		}
+
+		// validates input & submits user's budget for calculation
+		if (isNaN(budgetValue) || budgetValue === '') {
+			warning.classList.remove('hidden');
+			userBudget.classList.add('field-warning');
+			userBudget.value = '';
 		} else if (expenseList.length < 1) {
-			userBudget.classList.remove('warning');
 			userBudgetDisplay.innerText = budgetValue;
 			userBalance.innerText = budgetValue;
 			updateBalance();
 			checkBalance();
 			userBudget.value = '';
 		} else {
-			userBudget.classList.remove('warning');
 			userBudgetDisplay.innerText = budgetValue;
 			updateBalance();
 			checkBalance();
@@ -48,22 +50,33 @@ window.onload = function () {
 	// submits user's expense
 	submitExpense.addEventListener('click', () => {
 		let expenseValue = parseInt(userExpense.value);
+		const warning = document.getElementById('expense-warning')
 
+		// removes warning when user types in field
+		userExpense.oninput = () => {
+			warning.classList.add('hidden');
+			userExpense.classList.remove('field-warning');
+			expenseDescription.classList.remove('field-warning');
+		}
+
+		// validates input & submits user's expense for calculation
 		if (isNaN(expenseValue) || expenseValue === '' || expenseDescription.value === '') {
-			alert('Invalid Input, Please enter a $ amount & a description')
+			warning.classList.remove('hidden');
+			userExpense.classList.add('field-warning');
+			expenseDescription.classList.add('field-warning');
+			userExpense.value = '';
+			expenseDescription.value = '';
 		} else {
 			addListObject();
 			updateBalance();
 			checkBalance();
-			// addListItem();
-			// console.log(sumAmount());
 			userExpenseDisplay.innerHTML = sumAmount();
 			userExpense.value = '';
 			expenseDescription.value = '';
 		}
 	});
 
-	// updates users balance with values submitted
+	// updates user balance with values submitted
 	const updateBalance = () => {
 		if (expenseList.length < 1) {
 			userBalance.innerText = userBudgetDisplay.innerText;
@@ -81,8 +94,9 @@ window.onload = function () {
 		}
 	}
 
-	// creates an object to hold expenses and descriptions
+	// creates object and uses values to create list item in DOM
 	const addListObject = () => {
+		// creates an object to hold expenses and descriptions
 		const expense = {}
 
 		expense['amount'] = parseInt(userExpense.value);
@@ -96,14 +110,19 @@ window.onload = function () {
 			const listItem = document.createElement("li");
 			const deleteButton = document.createElement("button");
 
+			// displays values for list item from created object
 			listItem.innerText = '$' + expense.amount + ': ' + expense.description;
 
 			deleteButton.innerHTML = "X";
 			deleteButton.classList.add("delete-expense-item")
 			deleteButton.addEventListener('click', () => {
+				// finds list item index but checking for strict equality in amount and description
 				const index = expenseList.findIndex((item) => item.description === expense.description && item.amount === expense.amount);
+				// removes expense from expense list array
 				expenseList.splice(index, 1);
+				// removes list item from DOM
 				document.querySelectorAll('.expense-list-item')[index].remove();
+				// updates calculated expenses with new values after removing items
 				userExpenseDisplay.innerHTML = sumAmount();
 				updateBalance();
 			});
@@ -117,27 +136,8 @@ window.onload = function () {
 		// console.log(expenseList);
 	}
 
-	// const sumAmount = expenseList.map(expense => ({ value: expense.amount }));
-
-	// const sumAmount = () => expenseList.forEach(expense => {
-	// 	for (let key in expense) {
-	// 		console.log(expense);
-	// 	}
-	// });
-
-	// const sumAmount = () => expenseList.map(expense =>
-	// 	console.log(expense.amount));
-
 	// adds up expense list values to update expense amount
 	const sumAmount = () => expenseList.reduce((acc, val) =>
 		acc + val.amount, 0);
-
-	let currentExpense = Object.keys(expenseList).forEach(function (amount) {
-		// `prop` is the property name
-		// `data[prop]` is the property value
-		console.log(amount);
-	});
-
-	// .reduce((prev, curr) => prev + curr, 0);
 
 }
