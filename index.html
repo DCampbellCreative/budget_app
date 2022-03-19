@@ -15,71 +15,79 @@
 
 <body>
 
+
+
+	<div class='header'>
+		<h1 id='title'>Don't Budge</h1>
+	</div>
+
 	<div class='container'>
 
-		<div class='header'>
-			<h1 id='title'>Don't Budge</h1>
-		</div>
+		<div class='column-1-container'>
 
-		<div class='budget-container'>
-			<div id='budget-warning' class='hidden warning'>Invalid input, please enter a number</div>
 			<div class='budget-form'>
-				<input placeholder='$ Enter Budget' id='budget-field' type='text' />
-				<button id='submit-budget'>Submit</button>
+				<div id='budget-warning' class='hidden warning'>Invalid input, please enter a number</div>
+				<div class='row'>
+					<input placeholder='$ Enter Budget' id='budget-field' type='text' />
+					<button id='submit-budget'>Submit</button>
+				</div>
 			</div>
+
+			<div class='expense-form'>
+				<div id='expense-warning' class='hidden warning'>Invalid input, please enter a number and a description</div>
+				<div class='row'>
+					<input placeholder='$ Enter Expenses' id='expense-field' type='text' />
+					<button id='empty-DOM-element'>Submit</button>
+				</div>
+			</div>
+
+			<div class='expense-description-form'>
+				<div class='row'>
+					<input placeholder='Enter Expense Description' id='expense-description-field' type='text' />
+					<button id='submit-expense'>Submit</button>
+				</div>
+			</div>
+
+			<div class='expense-list-container'>
+
+				<div id='expense-list-text'>EXPENSES</div>
+
+				<ul id='expense-list'>
+				</ul>
+
+			</div>
+
+
 		</div>
 
-		<div class='budget-container-2'>
+
+
+
+
+		<div class="column-2-container">
+			<!-- <div class='budget-container-2'> -->
 			<div class='budget-form-2'>
 				<div id='budget-text'>BUDGET: $ </div>
 				<div id='budget-display'></div>
 			</div>
-		</div>
 
-		<div class='expense-container'>
-			<div id='expense-warning' class='hidden warning'>Invalid input, please enter a number and a description</div>
-			<div class='expense-form'>
-				<input placeholder='$ Enter Expenses' id='expense-field' type='text' />
-				<button id='empty-DOM-element'>Submit</button>
-			</div>
-		</div>
 
-		<div class='expense-description-container'>
-			<div class='expense-description-form'>
-				<input placeholder='Enter Expense Description' id='expense-description-field' type='text' />
-				<button id='submit-expense'>Submit</button>
-			</div>
-		</div>
 
-		<div class='expense-container-2'>
 			<div class='expense-form-2'>
 				<div id='expense-text'>EXPENSES: $ </div>
 				<div id='expense-display'> 0</div>
 			</div>
-		</div>
 
-		<div class='expense-list-container'>
-			<div class='expense-list-form'>
-				<div id='expense-list-text'>EXPENSES</div>
-			</div>
-		</div>
-
-		<div class='expense-list-container-2'>
-			<div class='expense-list-form-2'>
-				<ul id='expense-list'>
-				</ul>
-			</div>
-		</div>
-
-		<div class='balance-container'>
-			<div class='balance-form-2'>
+			<div class='balance-form'>
 				<text id='balance-text'>BALANCE: $</text>
 				<div id='balance-display'>0</div>
 			</div>
+
+
 		</div>
 
 	</div>
-	</div>
+
 	<script src='scripts.js'></script>
 </body>
 

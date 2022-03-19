@@ -2,18 +2,19 @@
 
 .container {
 	background: linear-gradient(to bottom, gray, 1%, white);
-	display: grid;
-	grid-template-columns: 7.5% 40% 5% 30% 17.5%;
-	grid-template-rows: 100px 55px 40px 55px 25px 25px;
-	grid-gap: 2rem;
+	display: flex;
+	flex-direction: row;
 	font-family: 'Nunito Sans', sans-serif;
+	font-size: 25px;
+	width: 100%;
+	height: auto;
 }
 
 .header {
-	display: grid;
+	display: flex;
 	justify-content: center;
 	align-content: center;
-	width: 100vw;
+	width: 100%;
 	background-color: mediumaquamarine;
 }
 
@@ -24,193 +25,121 @@
 	font-size: 60px;
 }
 
-/* budget container */
-.budget-container {
-	display: grid;
-	align-items: center;
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 2;
+/* first column */
+.column-1-container {
+	padding-left: 10%;
+	display: flex;
+	flex-direction: column;
+	width: 50%;
 }
 
 .budget-form {
+	margin-top: 1rem;
 	display: flex;
-	justify-content: left;
+	justify-content: flex-start;
+	flex-direction: column;
+	flex: 1;
+	font-size: 17px;
 }
 
 #budget-field {
-	display: inline;
 	height: 25px;
-	margin-right: 13px;
-	width: 100%; 
+	margin-right: 1rem;
+	width: 55%; 
 }
 
 #submit-budget {
-	display: inline;
 	height: 30px;
-	width:	100px;
+	width:	25%;
 }
 
 #submit-budget:hover {
 	box-shadow: 2px 2px 2px grey;
 }
 
-/* budget container 2 */
-.budget-container-2 {
-	display: grid;
-	align-items: center;
-	margin-top: 25px;
-	grid-column-start: 4;
-	grid-column-end: 5;
-	grid-row-start: 2;
-}
-
-.budget-form-2 {
-	display: flex;
-	align-items: center;
-	justify-content: left;
-	width: 100%;
-}
-
-#budget-text {
-	display: inline;
-	font-size: 25px;
-	margin-right: 5px;	
-}
-
-#budget-display {
-	display: inline;
-	font-size: 25px;
-	color:forestgreen;
-}
-
-/* expense container */
-.expense-container {
-	display: grid;
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 3;
-}
-
 .expense-form {
+	margin-top: 1rem;
 	display: flex;
-	justify-content: left;
+	justify-content: flex-start;
+	flex-direction: column;
+	flex: 1;
+	font-size: 17px;
 }
 
 #expense-field {
-	display: inline;
-	margin-top: 4px;
-	margin-right: 13px;
 	height: 25px;
-	width: 100%;
+	margin-right: 1rem;
+	width: 55%;  
 }
 
 #empty-DOM-element {
-	display: inline;
-	width: 100px;
 	height: 30px;
+	width:	25%;
 	visibility: hidden;
 }
 
+.expense-description-form {
+	margin-top: .5rem;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	flex: 1;
+	font-size: 17px;
+}
+
+#expense-description-field {
+	height: 25px;
+	margin-right: 1rem;
+	width: 55%;  
+}
+
+
 #submit-expense {
-	display: inline;
-	width: 100px;
 	height: 30px;
+	width:	25%;
 }
 
 #submit-expense:hover {
 	box-shadow: 2px 2px 2px grey;
-}
-
-/* expense container 2 */
-.expense-container-2 {
-	grid-column-start: 4;
-	grid-column-end: 5;
-	grid-row-start: 4;
-}
-
-.expense-form-2 {
-	display: flex;
-	justify-content: left;
-	width: 100%;
-}
-
-#expense-text {
-	font-size: 25px;
-	margin-right: 5px;
-}
-
-#expense-display {
-	display: inline;
-	text-align: center;
-	font-size: 25px;
-	color: red;
-}
-
-/* expense description */
-.expense-description-container {
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 4;
-}
-
-.expense-description-form {
-	display: flex;
-	justify-content: left;
-}
-
-#expense-description-field {
-	display: inline;
-	margin-right: 10px;
-	height: 25px;
-	width: 100%;
+	cursor: pointer;
 }
 
 /* expense list container */
 .expense-list-container {
-	grid-row-start: 5;
-	grid-column-start: 2;
-	grid-column-end: 3;
-}
-
-.expense-list-form {
+	margin-top: 1rem;
 	display: flex;
-	justify-content: center;
+	flex: 1;
+	flex-direction: column;
+	width: 100%;
 }
 
-#expense-list {
-	list-style: none;
-	align-items: center;
-}
 
 #expense-list-text {
-	font-size: 25px;
+	margin-bottom: -4%;
 }
 
 /* expense items */
-.expense-list-container-2 {
-	grid-row-start: 6;
-	grid-column-start: 2;
-	grid-column-end: 3;
+
+#expense-list {
+	list-style: none;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 0%;
 }
 
-.expense-list-form-2 {
-	display: flex;
-	margin-top: -10px;
-	justify-content: center;
-	align-items: center;
-}
 
 .expense-list-item {
+	font-size: 17px;
 	display: flex;
-	height: 35px;
-	width: 250px;
+	height: 20px;
+	width: 70%;
 	align-items: center;
 	justify-content: space-between;
-	padding: 5px 10px 5px 10px;
+	padding: 2% 4% 2% 4%;
 	border: 2px solid darkgrey;
-	margin-left: -45px;
-	margin-bottom: 10px;
+	border-radius: 2px;
+	/* margin-left: -45px; */
+	margin-bottom: .5rem;
 }
 
 .delete-expense-item {
@@ -221,30 +150,94 @@
 }
 
 .delete-expense-item:hover {
+	cursor: pointer;
 	box-shadow: 2px 2px 2px grey;
 }
 
-/* balance container */
-.balance-container {
-	grid-column-start: 4;
-	grid-row-start: 5;
-	justify-content: center;
+
+
+
+
+
+/* expense container 2 */
+
+.column-2-container {
+	padding-left: 5%;
+	display: flex;
+	flex-direction: column;
+	width: 25%;
 }
 
+.budget-form-2 {
+	display: flex;
+	margin-top: 2rem;
+}
+
+#budget-text {
+	margin-right: .5rem;	
+}
+
+#budget-display {
+	display: flex;
+	color:forestgreen;
+}
+/* .expense-container-2 {
+	display: flex;
+	flex-direction: column;
+} */
+
+.expense-form-2 {
+	margin-top: 4.5rem;
+	display: flex;
+	justify-content: left;
+	width: 100%;
+}
+
+#budget-text {
+	margin-right: .2rem;
+}
+
+#budget-display {
+	display: flex;
+	color:forestgreen;
+}
+
+
+
+
+#expense-text {
+	margin-right: .2rem;
+}
+
+#expense-display {
+	display: inline;
+	text-align: center;
+
+	color: red;
+}
+
+
+
+
+/* balance container */
+
+
 .balance-form {
+	margin-top: 1rem;
 	display: flex;
 	justify-content: left;
 }
 
 #balance-text {
+	
 	display: inline;
-	margin-right: 5px;
-	font-size: 25px;
+	margin-right: .2rem;
+
 }
 
 #balance-display {
 	display: inline;
-	font-size: 25px;
+
 }
 
 .warning {
@@ -263,4 +256,33 @@
 
 .hidden {
 	visibility: hidden;
+	/* display: none; */
+}
+
+.column-2-containter {
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+	width: 50%;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		font-size: 17px;
+	}
+
+	.budget-form, .expense-form, .expense-description-form, .expense-list-item{
+		font-size: 14px;
+	}
+
+	.warning {
+		font-size: 12px;
+	}
+
 }

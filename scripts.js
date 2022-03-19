@@ -117,7 +117,8 @@ window.onload = function () {
 			deleteButton.classList.add("delete-expense-item")
 			deleteButton.addEventListener('click', () => {
 				// finds list item index but checking for strict equality in amount and description
-				const index = expenseList.findIndex((item) => item.description === expense.description && item.amount === expense.amount);
+				const index = expenseList.findIndex((item) => 
+				item.description === expense.description && item.amount === expense.amount);
 				// removes expense from expense list array
 				expenseList.splice(index, 1);
 				// removes list item from DOM
@@ -133,7 +134,6 @@ window.onload = function () {
 		}
 
 		addListItem()
-		// console.log(expenseList);
 	}
 
 	// adds up expense list values to update expense amount
