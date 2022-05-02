@@ -1,94 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel='icon' href='favicon.ico' type='image/x-icon' />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-		integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel='stylesheet' href='styles.css' />
-	<title>Don't Budge</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Don't Budge</title>
+  </head>
 
-<body>
+  <body>
+    <div class="header">
+      <h1 id="title">Don't Budge</h1>
+    </div>
 
+    <div class="container">
+      <div class="column-1-container">
+        <div class="budget-form">
+          <div id="budget-warning" class="hidden warning">
+            Invalid input, please enter a number
+          </div>
+          <div class="row">
+            <input placeholder="$ Enter Budget" id="budget-field" type="text" />
+            <button id="submit-budget">Submit</button>
+          </div>
+        </div>
 
+        <div class="expense-form">
+          <div id="expense-warning" class="hidden warning">
+            Invalid input, please enter a number and a description
+          </div>
+          <div class="row">
+            <input
+              placeholder="$ Enter Expenses"
+              id="expense-field"
+              type="text"
+            />
+            <button id="empty-DOM-element">Submit</button>
+          </div>
+        </div>
 
-	<div class='header'>
-		<h1 id='title'>Don't Budge</h1>
-	</div>
+        <div class="expense-description-form">
+          <div class="row">
+            <input
+              placeholder="Enter Description"
+              id="expense-description-field"
+              type="text"
+            />
+            <button id="submit-expense">Submit</button>
+          </div>
+        </div>
 
-	<div class='container'>
+        <div class="expense-list-container">
+          <div id="expense-list-text">EXPENSES</div>
 
-		<div class='column-1-container'>
+          <ul id="expense-list"></ul>
+        </div>
+      </div>
 
-			<div class='budget-form'>
-				<div id='budget-warning' class='hidden warning'>Invalid input, please enter a number</div>
-				<div class='row'>
-					<input placeholder='$ Enter Budget' id='budget-field' type='text' />
-					<button id='submit-budget'>Submit</button>
-				</div>
-			</div>
+      <div class="column-2-container">
+        <!-- <div class='budget-container-2'> -->
+        <div class="budget-form-2">
+          <div id="budget-text">BUDGET: $</div>
+          <div id="budget-display"></div>
+        </div>
 
-			<div class='expense-form'>
-				<div id='expense-warning' class='hidden warning'>Invalid input, please enter a number and a description</div>
-				<div class='row'>
-					<input placeholder='$ Enter Expenses' id='expense-field' type='text' />
-					<button id='empty-DOM-element'>Submit</button>
-				</div>
-			</div>
+        <div class="expense-form-2">
+          <div id="expense-text">EXPENSES: $</div>
+          <div id="expense-display">0</div>
+        </div>
 
-			<div class='expense-description-form'>
-				<div class='row'>
-					<input placeholder='Enter Expense Description' id='expense-description-field' type='text' />
-					<button id='submit-expense'>Submit</button>
-				</div>
-			</div>
+        <div class="balance-form">
+          <text id="balance-text">BALANCE: $</text>
+          <div id="balance-display">0</div>
+        </div>
+      </div>
+    </div>
 
-			<div class='expense-list-container'>
-
-				<div id='expense-list-text'>EXPENSES</div>
-
-				<ul id='expense-list'>
-				</ul>
-
-			</div>
-
-
-		</div>
-
-
-
-
-
-		<div class="column-2-container">
-			<!-- <div class='budget-container-2'> -->
-			<div class='budget-form-2'>
-				<div id='budget-text'>BUDGET: $ </div>
-				<div id='budget-display'></div>
-			</div>
-
-
-
-			<div class='expense-form-2'>
-				<div id='expense-text'>EXPENSES: $ </div>
-				<div id='expense-display'> 0</div>
-			</div>
-
-			<div class='balance-form'>
-				<text id='balance-text'>BALANCE: $</text>
-				<div id='balance-display'>0</div>
-			</div>
-
-
-		</div>
-
-	</div>
-
-	<script src='scripts.js'></script>
-</body>
-
+    <script src="scripts.js"></script>
+  </body>
 </html>

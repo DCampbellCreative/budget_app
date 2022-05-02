@@ -1,185 +1,177 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@200&display=swap");
 
 .container {
-	background: linear-gradient(to bottom, gray, 1%, white);
-	display: flex;
-	flex-direction: row;
-	font-family: 'Nunito Sans', sans-serif;
-	font-size: 25px;
-	width: 100%;
-	height: auto;
+  background: linear-gradient(to bottom, gray, 1%, white);
+  display: flex;
+  flex-direction: row;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.5rem;
+  width: 100%;
+  height: auto;
 }
 
 .header {
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	width: 100%;
-	background-color: mediumaquamarine;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  background-color: mediumaquamarine;
 }
 
 #title {
-	color: white;
-	display: flex;
-	font-family: 'Bebas Neue', cursive;
-	font-size: 60px;
+  color: white;
+  display: flex;
+  font-family: "Bebas Neue", cursive;
+  font-size: 3rem;
 }
 
 /* first column */
 .column-1-container {
-	padding-left: 10%;
-	display: flex;
-	flex-direction: column;
-	width: 50%;
+  padding-left: 10%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .budget-form {
-	margin-top: 1rem;
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
-	flex: 1;
-	font-size: 17px;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 1;
+  font-size: 1rem;
 }
 
 #budget-field {
-	height: 25px;
-	margin-right: 1rem;
-	width: 55%; 
+  height: 2rem;
+  margin-right: 1rem;
+  width: 55%;
 }
 
 #submit-budget {
-	height: 30px;
-	width:	25%;
+  height: 1.75rem;
+  width: 25%;
 }
 
 #submit-budget:hover {
-	box-shadow: 2px 2px 2px grey;
+  box-shadow: 2px 2px 2px grey;
 }
 
 .expense-form {
-	margin-top: 1rem;
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
-	flex: 1;
-	font-size: 17px;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 1;
+  font-size: 1rem;
 }
 
 #expense-field {
-	height: 25px;
-	margin-right: 1rem;
-	width: 55%;  
+  height: 2rem;
+  margin-right: 1rem;
+  width: 55%;
 }
 
 #empty-DOM-element {
-	height: 30px;
-	width:	25%;
-	visibility: hidden;
+  height: 1.75rem;
+  width: 25%;
+  visibility: hidden;
 }
 
 .expense-description-form {
-	margin-top: .5rem;
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
-	flex: 1;
-	font-size: 17px;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 1;
+  font-size: 1rem;
 }
 
 #expense-description-field {
-	height: 25px;
-	margin-right: 1rem;
-	width: 55%;  
+  height: 2rem;
+  margin-right: 1rem;
+  width: 55%;
 }
 
-
 #submit-expense {
-	height: 30px;
-	width:	25%;
+  height: 1.75rem;
+  width: 25%;
 }
 
 #submit-expense:hover {
-	box-shadow: 2px 2px 2px grey;
-	cursor: pointer;
+  box-shadow: 2px 2px 2px grey;
+  cursor: pointer;
 }
 
 /* expense list container */
 .expense-list-container {
-	margin-top: 1rem;
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-	width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
 }
 
-
 #expense-list-text {
-	margin-bottom: -4%;
+  margin-bottom: -10px;
 }
 
 /* expense items */
 
 #expense-list {
-	list-style: none;
-	justify-content: flex-start;
-	align-items: center;
-	padding-left: 0%;
+  list-style: none;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 0%;
 }
 
-
 .expense-list-item {
-	font-size: 17px;
-	display: flex;
-	height: 20px;
-	width: 70%;
-	align-items: center;
-	justify-content: space-between;
-	padding: 2% 4% 2% 4%;
-	border: 2px solid darkgrey;
-	border-radius: 2px;
-	/* margin-left: -45px; */
-	margin-bottom: .5rem;
+  font-size: 17px;
+  display: flex;
+  height: 1.5rem;
+  width: 70%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 7px 5px 7px;
+  border: 2px solid darkgrey;
+  border-radius: 2px;
+  /* margin-left: -45px; */
+  margin-bottom: 0.5rem;
 }
 
 .delete-expense-item {
-	border: 1px solid gray;
-	border-radius: 3px;
-	color: red;
-	place-items: center;
+  border: 1px solid gray;
+  border-radius: 3px;
+  color: red;
+  place-items: center;
 }
 
 .delete-expense-item:hover {
-	cursor: pointer;
-	box-shadow: 2px 2px 2px grey;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px grey;
 }
-
-
-
-
-
 
 /* expense container 2 */
 
 .column-2-container {
-	padding-left: 5%;
-	display: flex;
-	flex-direction: column;
-	width: 25%;
+  padding-left: 5%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
 
 .budget-form-2 {
-	display: flex;
-	margin-top: 2rem;
+  display: flex;
+  margin-top: 45px;
 }
 
 #budget-text {
-	margin-right: .5rem;	
+  margin-right: 0.5rem;
 }
 
 #budget-display {
-	display: flex;
-	color:forestgreen;
+  display: flex;
+  color: forestgreen;
 }
 /* .expense-container-2 {
 	display: flex;
@@ -187,102 +179,139 @@
 } */
 
 .expense-form-2 {
-	margin-top: 4.5rem;
-	display: flex;
-	justify-content: left;
-	width: 100%;
+  margin-top: 88px;
+  display: flex;
+  justify-content: left;
+  width: 100%;
 }
 
 #budget-text {
-	margin-right: .2rem;
+  margin-right: 0.2rem;
 }
 
 #budget-display {
-	display: flex;
-	color:forestgreen;
+  display: flex;
+  color: forestgreen;
 }
 
-
-
-
 #expense-text {
-	margin-right: .2rem;
+  margin-right: 0.2rem;
 }
 
 #expense-display {
-	display: inline;
-	text-align: center;
+  display: inline;
+  text-align: center;
 
-	color: red;
+  color: red;
 }
-
-
-
 
 /* balance container */
 
-
 .balance-form {
-	margin-top: 1rem;
-	display: flex;
-	justify-content: left;
+  margin-top: 0.9rem;
+  display: flex;
+  justify-content: left;
 }
 
 #balance-text {
-	
-	display: inline;
-	margin-right: .2rem;
-
+  display: inline;
+  margin-right: 0.2rem;
 }
 
 #balance-display {
-	display: inline;
-
+  display: inline;
 }
 
 .warning {
-	font-size: 13px;
-	color: red;
+  font-size: 13px;
+  color: red;
 }
 
 .field-warning {
-	border: 2px solid red;
-	border-radius: 2px;
+  border: 2px solid red;
+  border-radius: 2px;
 }
 
 .field-warning::placeholder {
-	color: red;
+  color: red;
 }
 
 .hidden {
-	visibility: hidden;
-	/* display: none; */
+  visibility: hidden;
+  /* display: none; */
 }
 
 .column-2-containter {
-	display: flex;
-	flex-direction: column;
-	/* align-items: center; */
-	width: 50%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 50%;
 }
 
 .row {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 @media screen and (max-width: 768px) {
-	.container {
-		font-size: 17px;
-	}
+  .budget-form,
+  .expense-form,
+  .expense-description-form,
+  .expense-list-item {
+    font-size: 0.75rem;
+    height: 1rem;
+    margin: 0;
+    width: 100%;
+  }
 
-	.budget-form, .expense-form, .expense-description-form, .expense-list-item{
-		font-size: 14px;
-	}
+  .warning {
+    font-size: 0.75rem;
+  }
 
-	.warning {
-		font-size: 12px;
-	}
+  #budget-text,
+  #budget-display,
+  #expense-text,
+  #expense-display,
+  #balance-text,
+  #balance-display,
+  #expense-list-text {
+    font-size: 1rem;
+  }
 
+  #submit-budget,
+  #submit-expense,
+  #empty-DOM-element {
+    /* font-size: 0.75rem; */
+    height: 1.75rem;
+    width: 50%;
+    align-self: center;
+    margin: 0% 0% 10% 0%;
+  }
+
+  #budget-field,
+  #expense-field,
+  #expense-description-field {
+    width: 100%;
+    margin: 0% 0% 2% 0%;
+  }
+
+  .budget-form-2 {
+    margin-top: 35px;
+  }
+  .expense-form-2 {
+    margin-top: 135px;
+  }
+
+  .balance-form {
+    margin-top: 17px;
+  }
+  #empty-DOM-element {
+    display: none;
+  }
+
+  .row {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
